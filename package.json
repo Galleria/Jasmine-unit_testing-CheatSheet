@@ -1,0 +1,19 @@
+{
+  "name": "jasmine-unit-test-practice",
+  "version": "0.0.1",
+  "description": "for practice jasmine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jasmine": "./node_modules/.bin/jasmine-node ./spec --junitreport"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^2.4.1",
+    "jasmine-node": "^1.14.5"
+  },
+  "devDependencies": {
+    "jasmine-xml2html-converter": "0.0.2"
+  }
+}
