@@ -24,7 +24,7 @@ function unique(arr){
   duplicate_count_minus.forEach( (value,idx)=>{
     if( value == 1 ){
       while( arr.indexOf(-1*idx) > -1 ){
-        arr.splice(arr.indexOf(idx), 1);
+        arr.splice(arr.indexOf(-1*idx), 1);
       }
     }
   })
