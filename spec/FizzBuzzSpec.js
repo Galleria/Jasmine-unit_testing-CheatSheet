@@ -12,7 +12,7 @@ describe("FizzBuzz Unit Testing", ()=> {
 
   it("Should be return 'numberX' when number is not 3 and 5" , ()=>{
     var num = 1 ;
-    expect( fizzBuzz(num) ).toEqual( num );
+    expect( fizzBuzz(num) ).toEqual( num+'' );
   })
 
   it("Should be return 'Fizz' when number == 6" , ()=> {
@@ -24,7 +24,7 @@ describe("FizzBuzz Unit Testing", ()=> {
   })
 
   it("Should be return 'FizzBuzz' when number == 15" , ()=> {
-    expect( fizzBuzz(15) ).toEqual('FizzBuzz');
+    expect( fizzBuzz(15) ).toEqual('Fizz Buzz');
   })
 
 })
