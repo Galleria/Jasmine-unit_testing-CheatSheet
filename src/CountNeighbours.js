@@ -1,4 +1,4 @@
-count_neighbours = function( area , y ,x  ){
+count_neighbours = function( area , x, y  ){
   var result = 0 ;
 
   if( x-1 >= 0 ){
@@ -13,7 +13,7 @@ count_neighbours = function( area , y ,x  ){
     result += area[x][y-1];
   }
 
-  if( y-1 >= 0 && x+1 < area[0].length ){
+  if( y-1 >= 0 && x+1 < area.length ){
     result += area[x+1][y-1];
   }
 
@@ -21,15 +21,15 @@ count_neighbours = function( area , y ,x  ){
     result += area[x-1][y-1];
   }
 
-  if( x+1 < area[0].length ){
+  if( x+1 < area.length ){
     result += area[x+1][y];
   }
 
-  if( y+1 < area.length ){
+  if( y+1 < area[0].length ){
     result += area[x][y+1];
   }
 
-  if( x+1 < area[0].length && y+1 < area.length ){
+  if( x+1 < area.length && y+1 < area[0].length ){
     result += area[x+1][y+1];
   }
 
@@ -49,6 +49,37 @@ neighbours = function(area , y , x){
   y
   y
   y
+*/
+
+
+/*
+console.log( countNeighbours([[1, 0, 0, 1, 0],
+                              [0, 1, 0, 0, 0],
+                              [0, 0, 1, 0, 1],
+                              [1, 0, 0, 0, 0],
+                              [0, 0, 1, 0, 0]], 1, 2) );
+
+
+console.log(  countNeighbours([[1, 0, 0, 1, 0],
+                              [0, 1, 0, 0, 0],
+                              [0, 0, 1, 0, 1],
+                              [1, 0, 0, 0, 0],
+                              [0, 0, 1, 0, 0]], 0, 0) );
+
+console.log(  countNeighbours([[1, 1, 1],
+                                  [1, 1, 1],
+                                  [1, 1, 1]], 0, 2) );
+
+console.log(  countNeighbours([[0, 0, 0],
+                                  [0, 1, 0],
+                                  [0, 0, 0]], 1, 1) );
+
+console.log( countNeighbours([[1,0,1,0,1],
+                     [0,1,0,1,0],
+                     [1,0,1,0,1],
+                     [0,1,0,1,0],
+                     [1,0,1,0,1],
+                     [0,1,0,1,0]],5,4) );
 */
 
 module.exports = count_neighbours;
