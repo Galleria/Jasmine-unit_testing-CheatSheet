@@ -20,7 +20,7 @@ function unique(arr){
       }
     }
   })
-  
+
   duplicate_count_minus.forEach( (value,idx)=>{
     if( value == 1 ){
       while( arr.indexOf(-1*idx) > -1 ){
@@ -32,7 +32,7 @@ function unique(arr){
   return arr;
 }
 
-unique([-10,10,0]) );
+unique([-10,10,0] );
 unique([1, 2, 3, 1, 3]);
 unique([1, 2, 3, 4, 5]);
 unique([5, 5, 5, 5, 5]);
