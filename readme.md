@@ -1,9 +1,12 @@
-Jasmine (JavaScript unit testing)
+# Jasmine Guide Line (JavaScript unit testing)
 
-there are two method for comparing expect and actual result below
--- Inbuilt Matcher
--- Custom Matchers
-================================================================================
+there are two methods for comparing expected and actual result as below
+___
+- Inbuilt Matcher
+- Custom Matchers
+___
+
+```javascript
 
 //test suit
 describe("",function(){
@@ -52,10 +55,12 @@ describe("",function(){
 
 });
 
-================================================================================
-Inbuilt Matcher
----------------
+```
+---
 
+#Inbuilt Matcher
+
+```javascript
 expect( a ).{function( b )};
 expect( a ).not.{function( b )};
 
@@ -88,20 +93,22 @@ expect( a ).not.{function( b )};
   jasmine.arrayContaining([Array]); // contains with array value
   jasmine.stringMatching('String'); //contains with string value
 
---------------------------------------------------------------------------------
-Spy
+```
+---
+
+#Spy
 
 Spy is methodology to watch object and expect something on it.
 there're 3 method for spying as below
-  -- spyOn()
-      -- spy on exist object.
-  -- createSpy()
-      -- create function without implemented
-  -- createSpyObj()
-      -- create object without implemented
+  - spyOn()
+      - spy on exist object.
+  - createSpy()
+      - create function without implemented
+  - createSpyObj()
+      - create object without implemented
 
---------------------------------------++++++++++++++++++++++++++++++   
-
+---
+```javascript
 spyOn( obj , 'function' )   
   --> obj is object as object
       'function' is function name as string
@@ -109,9 +116,9 @@ spyOn( obj , 'function' )
 expect( obj.function ).toHaveBeenCalled();  // spy obj was called
                       .toHaveBeenCalled(x);  // spy obj was called x times
                       .toHaveBeenCalledWith( args )  // spy obj sent args specificed.
-
---------------------------------------
-
+```
+---
+```javascript
 spyOn( obj , 'function' ).and.callThrough();  
   --> obj is object as object
       'function' is function name as string   
@@ -127,7 +134,7 @@ foo = {
 }
 spyOn(foo, 'getBar').and.callThrough();  --> assign return value and assign to bar;
 
---------------------------------------
+---
 
 spyOn( obj , 'function' ).and.returnValue( x );   // return value "X" when call 'function'
 spyOn(foo, "getBar").and.returnValues("first", "second");   
@@ -136,7 +143,7 @@ spyOn(foo, "getBar").and.returnValues("first", "second");
 // return value "second" when call 'function' second time
 // return undefined if call more than define
 
---------------------------------------
+---
 
 spyOn( obj , "function").and.callFake(function(arguments, can, be, received) {
   return X;
@@ -144,13 +151,13 @@ spyOn( obj , "function").and.callFake(function(arguments, can, be, received) {
 
 // when call this function it will call this Fake function.
 
---------------------------------------
+---
 
 spyOn( obj , "function").and.throwError('XXX')
 
 // throw error when call this function.
 
---------------------------------------
+---
 
 // check obj in function is called already.
 
@@ -165,7 +172,7 @@ obj.function.calls.argsFor( x ) // x is round that called
   expect(foo.setBar.calls.argsFor(0)).toEqual([123]);
   expect(foo.setBar.calls.argsFor(1)).toEqual([456, "baz"]);
 
---------------------------------------
+---
 
 obj.function.calls.allArgs()
 
@@ -174,8 +181,7 @@ obj.function.calls.allArgs()
 
   expect(foo.setBar.calls.allArgs()).toEqual([[123],[456, "baz"]]);
 
---------------------------------------++++++++++++++++++++++++++++++  
---------------------------------------
+---  
 
 obj.function.calls.mostRecent()
 
@@ -184,7 +190,7 @@ obj.function.calls.mostRecent()
 
   expect(foo.setBar.calls.mostRecent()).toEqual({object: foo, args: [456, "baz"], returnValue: undefined});
 
---------------------------------------
+---
 
 obj.function.calls.first()
 
@@ -193,7 +199,7 @@ obj.function.calls.first()
 
   expect(foo.setBar.calls.first()).toEqual({object: foo, args: [123], returnValue: undefined});
 
---------------------------------------
+---
 
 obj.funciton.calls.all()
 
@@ -201,11 +207,11 @@ obj.funciton.calls.all()
 
   expect(foo.setBar.calls.all()).toEqual([{object: foo, args: [123], returnValue: undefined}]);
 
---------------------------------------  
+---
 
 obj.function.calls.reset();   // reset all tracking for a spy.
 
---------------------------------------  
+---
 
   Example
 
@@ -224,15 +230,15 @@ obj.function.calls.reset();   // reset all tracking for a spy.
     expect(spy.calls.mostRecent().object).toBe(quux);
   });
 
---------------------------------------  
---------------------------------------++++++++++++++++++++++++++++++   
+--- 
+---   
 
 createSpy('functionName')
 
 whatAmI = jasmine.createSpy('I am function');
 whatAmI("I", "am", "a", "spy");
 
---------------------------------------++++++++++++++++++++++++++++++    
+---  
 
 createSpyObj('objName',[functionArray])
 
@@ -242,11 +248,12 @@ tape = jasmine.createSpyObj('tape', ['play', 'pause', 'stop', 'rewind']);
     tape.pause();
     tape.rewind(0);
 
-================================================================================
+---
+```
 
-Custom Matchers
----------------
-
+#Custom Matchers
+---
+```javascript
 jasmine.addMatchers({
     functionName : function(){
       Return {
@@ -259,10 +266,12 @@ jasmine.addMatchers({
       }
     }
 });
+```
 
-Example
--------
-
+#How to use Matchers see example as below.
+#Example
+---
+```javascript
 jasmine.addMatchers ({
    validateAge: function() {
       Return {    
@@ -275,5 +284,5 @@ jasmine.addMatchers ({
       };   
    }    
 });
-
-================================================================================
+```
+---
